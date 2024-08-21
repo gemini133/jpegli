@@ -7,20 +7,9 @@
 
 name: Build/Test WASM
 on:
-  merge_group:
-  push:
-    branches:
-      - main
-      - v*.*.x
-  pull_request:
-    types: [opened, reopened, labeled, unlabeled, synchronize]
+  workflow_dispatch:
 
-permissions:
-  contents: read
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}-${{ github.event_name }}
-  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+permissions: {}
 
 jobs:
   build_test:
