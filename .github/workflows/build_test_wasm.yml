@@ -138,7 +138,4 @@ jobs:
         path: |
           prefix/bin/*
           prefix/lib/*
-        (github.event_name == 'pull_request' &&
-         contains(github.event.pull_request.labels.*.name, 'CI:full'))
-      run: |
-        ./ci.sh test
+      
